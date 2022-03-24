@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <!--    vehicle root menu-->
+    <menuitem name="Service Station Management" id="service_station_root" web_icon="service_station_management,static/description/icon.png" groups="base.group_user"/>
+    <menuitem name="Vehicles" id="vehicles_root" sequence="1" parent="service_station_root" groups="base.group_user" />
+    <menuitem name="Vehicles" id="vehicle_details_menu" sequence="1" parent="vehicles_root" action="service_station_management.vehicle_action" groups="base.group_user"/>
+
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    vehicle list view-->
+    <record id="vehicle_tree_view" model="ir.ui.view">
+        <field name="name">vehicle.tree.view</field>
+        <field name="model">vehicle</field>
+        <field name="arch" type="xml">
+            <tree string="Vehicles">
+                <field name="name"/>
+                <field name="manufacture_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    vehicle form view-->
+    <record id="vehicle_form_view" model="ir.ui.view">
+        <field name="name">vehicle.form.view</field>
+        <field name="model">vehicle</field>
+        <field name="arch" type="xml">
+            <form string="Vehicles">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="manufacture_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    action for vehicle-->
+    <record id="vehicle_action" model="ir.actions.act_window">
+        <field name="name">Vehicle</field>
+        <field name="res_model">vehicle</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>
