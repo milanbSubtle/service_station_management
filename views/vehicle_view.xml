@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <tree string="Vehicles">
                 <field name="name"/>
+                <field name="owner"/>
                 <field name="manufacture_date"/>
             </tree>
         </field>
@@ -22,6 +23,7 @@
                     <group>
                         <group>
                             <field name="name"/>
+                            <field name="owner"/>
                         </group>
                         <group>
                             <field name="manufacture_date"/>

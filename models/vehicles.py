@@ -7,3 +7,4 @@ class Vehicle(models.Model):
 
     name = fields.Char(string="REG Number", required=True)
     manufacture_date = fields.Date(string="Manufacture Date")
+    owner = fields.Many2one(comodel_name="res.partner", string="Owner", required=True)
