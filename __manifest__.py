@@ -4,10 +4,12 @@
     'name' : 'Service Station Management System',
     'version' : '1',
     'depends': [
-        'base'
+        'base',
+        'product'
     ],
     'data': [
         'views/vehicle_view.xml',
+        'views/service_management_view.xml',
         'views/menu.xml',
         'security/ir.model.access.csv'
     ],
