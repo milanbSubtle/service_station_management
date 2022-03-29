@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    service management list view-->
+    <record id="service_management_tree_view" model="ir.ui.view">
+        <field name="name">service.management.tree.view</field>
+        <field name="model">service.management</field>
+        <field name="arch" type="xml">
+            <tree string="Service Management">
+                <field name="vehicle"/>
+                <field name="customer"/>
+                <field name="date_time"/>
+                <field name="estimated_date_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    service management form view-->
+    <record id="service_management_form_view" model="ir.ui.view">
+        <field name="name">service.management.form.view</field>
+        <field name="model">service.management</field>
+        <field name="arch" type="xml">
+            <form string="Service Management">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="vehicle"/>
+                        </group>
+                        <group>
+                            <field name="customer"/>
+                        </group>
+                        <group>
+                            <field name="date_time"/>
+                            <field name="estimated_date_time"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Services" name="record_lines">
+                            <field name="record_lines">
+                                <tree string="Service Record Lines" editable="bottom">
+                                    <field name="service_type"/>
+                                    <field name="quantity"/>
+                                    <field name="price"/>
+                                    <field name="res_currency" invisible="1"/>
+                                    <field name="total_price" force_save="1" widget="monetary"/>
+                                </tree>
+                            </field>
+<!--                            <field name="total"/>-->
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    action for service management-->
+    <record id="service_management_action" model="ir.actions.act_window">
+        <field name="name">Service Management</field>
+        <field name="res_model">service.management</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--    service record lines list view-->
+    <record id="service_record_lines_tree_view" model="ir.ui.view">
+        <field name="name">service.record.lines.tree.view</field>
+        <field name="model">service.record.lines</field>
+        <field name="arch" type="xml">
+            <tree string="Service Record Lines">
+                <field name="service_type"/>
+                <field name="quantity"/>
+                <field name="price"/>
+                <field name="total_price"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    service record lines form view-->
+    <record id="service_record_lines_form_view" model="ir.ui.view">
+        <field name="name">service.record.lines.form.view</field>
+        <field name="model">service.record.lines</field>
+        <field name="arch" type="xml">
+            <form string="Service Record Lines">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="service_type"/>
+                        </group>
+                        <group>
+                            <field name="quantity"/>
+                        </group>
+                        <group>
+                            <field name="price"/>
+                            <field name="total_price"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    action for service record lines tree view-->
+    <record id="service_record_lines_action" model="ir.actions.act_window">
+        <field name="name">Service Record Lines</field>
+        <field name="res_model">service.record.lines</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>
