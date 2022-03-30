@@ -5,11 +5,13 @@
     'version' : '1',
     'depends': [
         'base',
-        'product'
+        'product',
+        'account'
     ],
     'data': [
         'views/vehicle_view.xml',
         'views/service_management_view.xml',
+        'views/account_move_views.xml',
         'views/menu.xml',
         'security/ir.model.access.csv'
     ],

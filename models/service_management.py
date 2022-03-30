@@ -1,5 +1,6 @@
 from odoo import api, fields, models, _
 from datetime import datetime, timedelta
+from odoo.exceptions import AccessError, UserError, ValidationError
 
 
 class ServiceManagement(models.Model):
@@ -12,6 +13,10 @@ class ServiceManagement(models.Model):
     estimated_date_time = fields.Datetime(string="Estimated Date and Time", compute="_compute_estimate_date_time")
     record_lines = fields.One2many(comodel_name="service.record.lines", inverse_name="service_management_id",
                                    string="Record Lines")
+    total = fields.Float(string="Total", compute="_calculate_total")
+    state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirmed'), ('invoice', 'Invoiced'), ('paid', 'Paid')],
+                             string="States", default="draft")
+    actual_end_date = fields.Datetime(string="Actual Date and Time")
 
     @api.onchange("vehicle")
     def _set_customer(self):
@@ -21,6 +26,25 @@ class ServiceManagement(models.Model):
     def _compute_estimate_date_time(self):
         for record in self:
             record.estimated_date_time = (record.date_time + timedelta(hours=2))
+
+    # calculate total
+    @api.depends('record_lines')
+    def _calculate_total(self):
+        for record in self:
+            total = 0
+            service_lines = record.record_lines
+            for service_line in service_lines:
+                total += service_line.total_price
+            record.total = total
+
+    def action_confirm(self):
+        self.write({'state': 'confirm'})
+
+    def action_invoice(self):
+        if self.actual_end_date:
+            self.write({'state': 'invoice'})
+        else:
+            raise UserError(_('Please update actual end date'))
 
 
 class ServiceRecordLines(models.Model):
@@ -32,9 +56,7 @@ class ServiceRecordLines(models.Model):
     quantity = fields.Float(string="Quantity", default="1")
     price = fields.Float(string="Price")
     total_price = fields.Monetary(currency_field='res_currency', string="Total Price", readonly=True)
-    res_currency = fields.Many2one(comodel_name='res.currency'
-                                                '', default=lambda self: self.env.company.currency_id)
-    total = fields.Float(string="Total", compute="_calculate_total")
+    res_currency = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id)
 
     @api.onchange('service_type')
     def _onchange_price(self):
@@ -43,8 +65,3 @@ class ServiceRecordLines(models.Model):
     @api.onchange('price', 'quantity')
     def _onchange_total_price(self):
         self.total_price = self.price * self.quantity
-
-    @api.depends('total')
-    def _calculate_total(self):
-        for total_record in self:
-            total_record += self.total_price

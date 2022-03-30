@@ -10,6 +10,8 @@
                 <field name="customer"/>
                 <field name="date_time"/>
                 <field name="estimated_date_time"/>
+                <field name="actual_end_date"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>
@@ -20,6 +22,13 @@
         <field name="model">service.management</field>
         <field name="arch" type="xml">
             <form string="Service Management">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" states="draft"
+                            class="btn-primary"/>
+                    <button name="action_invoice" string="Invoice" type="object" states="confirm" class="btn-primary"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,invoice,paid"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -31,6 +40,9 @@
                         <group>
                             <field name="date_time"/>
                             <field name="estimated_date_time"/>
+                        </group>
+                        <group>
+                            <field name="actual_end_date"/>
                         </group>
                     </group>
                     <notebook>
@@ -44,7 +56,12 @@
                                     <field name="total_price" force_save="1" widget="monetary"/>
                                 </tree>
                             </field>
-<!--                            <field name="total"/>-->
+                            <group>
+                                <group></group>
+                                <group>
+                                    <field name="total" class="text-right"/>
+                                </group>
+                            </group>
                         </page>
                     </notebook>
                 </sheet>
