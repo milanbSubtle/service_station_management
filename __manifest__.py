@@ -12,6 +12,7 @@
         'views/vehicle_view.xml',
         'views/service_management_view.xml',
         'views/account_move_views.xml',
+        'views/bay_view.xml',
         'views/menu.xml',
         'security/ir.model.access.csv'
     ],

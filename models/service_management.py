@@ -19,9 +19,6 @@ class ServiceManagement(models.Model):
     actual_end_date = fields.Datetime(string="Actual Date and Time")
     sequence_no = fields.Char(string="Service Reference", default=lambda self: _('New'))
 
-    # bay lines
-    bay_lines = fields.One2many(comodel_name="bay", inverse_name="bay_records_id", string="Bay Lines")
-
     @api.onchange("vehicle")
     def _set_customer(self):
         self.customer = self.vehicle.owner
@@ -60,8 +57,11 @@ class ServiceRecordLines(models.Model):
     service_management_id = fields.Many2one(comodel_name="service.management")
     quantity = fields.Float(string="Quantity", default="1")
     price = fields.Float(string="Price")
+    # total price
     total_price = fields.Monetary(currency_field='res_currency', string="Total Price", readonly=True)
     res_currency = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id)
+    # bay lines in services
+    bay_lines = fields.Many2one(comodel_name="bay", string="Bay Lines")
 
     @api.onchange('service_type')
     def _onchange_price(self):

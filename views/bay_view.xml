@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    bay list view-->
+    <record id="bay_tree_view" model="ir.ui.view">
+        <field name="name">bay.tree.view</field>
+        <field name="model">bay</field>
+        <field name="arch" type="xml">
+            <tree string="Bay">
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    bay form view-->
+    <record id="bay_form_view" model="ir.ui.view">
+        <field name="name">bay.form.view</field>
+        <field name="model">bay</field>
+        <field name="arch" type="xml">
+            <form string="Bay">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    action for bay-->
+    <record id="bay_action" model="ir.actions.act_window">
+        <field name="name">Bay</field>
+        <field name="res_model">bay</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

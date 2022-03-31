@@ -52,11 +52,12 @@
                         </group>
                     </group>
                     <notebook>
-<!--                        services tab-->
+                        <!--                        services tab-->
                         <page string="Services" name="record_lines">
                             <field name="record_lines">
                                 <tree string="Service Record Lines" editable="bottom">
                                     <field name="service_type"/>
+                                    <field name="bay_lines"/>
                                     <field name="quantity"/>
                                     <field name="price"/>
                                     <field name="res_currency" invisible="1"/>
@@ -69,15 +70,6 @@
                                     <field name="total" class="text-right"/>
                                 </group>
                             </group>
-                        </page>
-<!--                        bay tab-->
-                        <page string="Bays" name="bay_lines">
-                            <field name="bay_lines">
-                                <tree string="Bay record lines" editable="bottom">
-                                    <field name="name"/>
-                                    <field name="code"/>
-                                </tree>
-                            </field>
                         </page>
                     </notebook>
                 </sheet>
