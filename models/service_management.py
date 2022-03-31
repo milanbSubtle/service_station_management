@@ -17,6 +17,7 @@ class ServiceManagement(models.Model):
     state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirmed'), ('invoice', 'Invoiced'), ('paid', 'Paid')],
                              string="States", default="draft")
     actual_end_date = fields.Datetime(string="Actual Date and Time")
+    # sequence number in service management
     sequence_no = fields.Char(string="Service Reference", default=lambda self: _('New'))
 
     @api.onchange("vehicle")

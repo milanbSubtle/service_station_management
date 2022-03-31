@@ -15,6 +15,6 @@
     <!--Bay selection-->
     <menuitem name="Configuration" id="bay_config" sequence="3" parent="service_station_root" groups="base.group_user"/>
     <menuitem name="Configuration" id="bay_root" sequence="3" parent="bay_config" groups="base.group_user"/>
-    <menuitem name="Bay 01" id="bay_1" sequence="1" parent="bay_root"
+    <menuitem name="Bay" id="bay_1" sequence="1" parent="bay_root"
               groups="base.group_user" action="bay_action"/>
 </odoo>
