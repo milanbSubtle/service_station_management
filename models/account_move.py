@@ -10,4 +10,8 @@ class AccountMove(models.Model):
     def _set_vehicle_domain(self):
         customer = self.partner_id.id
         vehicle_ids = self.env['vehicle'].search([('owner', '=', customer)])
-        pass
+        if vehicle_ids:
+            vehicle_id_list = vehicle_ids.ids
+            return {
+                'domain': {'vehicle': [('id', 'in', vehicle_id_list)]}
+            }
