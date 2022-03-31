@@ -17,6 +17,10 @@ class ServiceManagement(models.Model):
     state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirmed'), ('invoice', 'Invoiced'), ('paid', 'Paid')],
                              string="States", default="draft")
     actual_end_date = fields.Datetime(string="Actual Date and Time")
+    sequence_no = fields.Char(string="Service Reference", default=lambda self: _('New'))
+
+    # bay lines
+    bay_lines = fields.One2many(comodel_name="bay", inverse_name="bay_records_id", string="Bay Lines")
 
     @api.onchange("vehicle")
     def _set_customer(self):
@@ -38,7 +42,8 @@ class ServiceManagement(models.Model):
             record.total = total
 
     def action_confirm(self):
-        self.write({'state': 'confirm'})
+        sequence = self.env['ir.sequence'].next_by_code('service_sequence') or _('New')
+        self.write({'state': 'confirm', 'sequence_no': sequence})
 
     def action_invoice(self):
         if self.actual_end_date:

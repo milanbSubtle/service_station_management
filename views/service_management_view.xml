@@ -6,6 +6,7 @@
         <field name="model">service.management</field>
         <field name="arch" type="xml">
             <tree string="Service Management">
+                <field name="sequence_no"/>
                 <field name="vehicle"/>
                 <field name="customer"/>
                 <field name="date_time"/>
@@ -30,6 +31,11 @@
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,invoice,paid"/>
                 </header>
                 <sheet>
+                    <div>
+                        <h1>
+                            <field name="sequence_no"/>
+                        </h1>
+                    </div>
                     <group>
                         <group>
                             <field name="vehicle"/>
@@ -46,6 +52,7 @@
                         </group>
                     </group>
                     <notebook>
+<!--                        services tab-->
                         <page string="Services" name="record_lines">
                             <field name="record_lines">
                                 <tree string="Service Record Lines" editable="bottom">
@@ -62,6 +69,15 @@
                                     <field name="total" class="text-right"/>
                                 </group>
                             </group>
+                        </page>
+<!--                        bay tab-->
+                        <page string="Bays" name="bay_lines">
+                            <field name="bay_lines">
+                                <tree string="Bay record lines" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
