@@ -26,13 +26,18 @@
                 <header>
                     <button name="action_confirm" string="Confirm" type="object" states="draft"
                             class="btn-primary"/>
-                    <button name="action_invoice" string="Invoice" type="object" states="confirm" class="btn-primary"/>
-<!--                    add status bar-->
-                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,invoice,paid"/>
+                    <button name="action_in_progress" string="In Progress" type="object" states="confirm"
+                            class="btn-primary"/>
+                    <button name="action_done" string="Done" type="object" states="in_progress" class="btn-primary"/>
+                    <button name="action_invoice" string="Invoice" type="object" states="done" class="btn-primary"/>
+                    <button name="action_paid" string="Paid" type="object" states="invoice" class="btn-primary"/>
+                    <!--                    add status bar-->
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirm,in_progress,done,invoice,paid"/>
                 </header>
                 <sheet>
                     <div>
-<!--                        sequence number in service management-->
+                        <!--                        sequence number in service management-->
                         <h1>
                             <field name="sequence_no"/>
                         </h1>
@@ -53,12 +58,12 @@
                         </group>
                     </group>
                     <notebook>
-                        <!--                        services tab-->
+                        <!-- services tab-->
                         <page string="Services" name="record_lines">
                             <field name="record_lines">
                                 <tree string="Service Record Lines" editable="bottom">
                                     <field name="service_type"/>
-                                    <field name="bay_lines"/>
+                                    <field name="bay_lines" options="{'no_create': True, 'no_create_edit':True}"/>
                                     <field name="quantity"/>
                                     <field name="price"/>
                                     <field name="res_currency" invisible="1"/>
