@@ -12,8 +12,12 @@
               groups="base.group_user"/>
     <menuitem name="Service Management" id="service_management_menu" sequence="1" parent="service_management_root"
               action="service_management_action" groups="base.group_user"/>
+    <!--    Reports-->
+    <menuitem name="Reports" id="reports_root" sequence="3" parent="service_station_root" groups="base.group_user"/>
+    <menuitem name="Vehicle details" id="vehicle_details" sequence="1" parent="reports_root" groups="base.group_user"
+              action="vehicle_details_action"/>
     <!--Bay selection-->
-    <menuitem name="Configuration" id="bay_config" sequence="3" parent="service_station_root" groups="base.group_user"/>
+    <menuitem name="Configuration" id="bay_config" sequence="4" parent="service_station_root" groups="base.group_user"/>
     <menuitem name="Configuration" id="bay_root" sequence="3" parent="bay_config" groups="base.group_user"/>
     <menuitem name="Bay" id="bay_1" sequence="1" parent="bay_root"
               groups="base.group_user" action="bay_action"/>

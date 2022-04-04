@@ -37,7 +37,7 @@
                 </header>
                 <sheet>
                     <div>
-                        <!--                        sequence number in service management-->
+                        <!--sequence number in service management-->
                         <h1>
                             <field name="sequence_no"/>
                         </h1>
