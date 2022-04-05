@@ -16,7 +16,8 @@
         'views/bay_view.xml',
         'views/vehicle_details_view.xml',
         'views/menu.xml',
-        'report/vehicle_details_template.xml'
+        'report/vehicle_details_template.xml',
+        'report/report.xml'
     ],
 
 

@@ -1,57 +1,47 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <!--    action for vehicle details pdf report-->
-    <record id="vehicle_details_report" model="ir.actions.report">
-        <field name="name">Vehicle Details</field>
-        <field name="model">vehicle</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">service_station_management.report_vehicle</field>
-        <field name="report_file">service_station_management.report_vehicle</field>
-        <field name="binding_model_id" ref="model_vehicle"/>
-        <field name="binding_type">report</field>
-    </record>
     <!--vehicle details template-->
     <template id="report_vehicle">
         <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="o">
-                <div class="page">
-                    <center>
-                        <h1>
-                            <span>Vehicle Details</span>
-                        </h1>
-                    </center>
-                    <div class="table_container">
-                        <thread>
-                            <table>
-                                <tr>
-                                    <th>
-                                        <span>Vehicle Number</span>
-                                    </th>
-                                    <th>
-                                        <span>Owner name</span>
-                                    </th>
-                                    <th>
-                                        <span>Manufacture Name</span>
-                                    </th>
-                                </tr>
-                            </table>
-                        </thread>
-                        <table>
-                            <tr>
-                                <td>
-                                    <span t-field="o.name"/>
-                                </td>
-                                <td>
-                                    <span t-field="o.owner"/>
-                                </td>
-                                <td>
-                                    <span t-field="o.manufacture_date"/>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </t>
+        <div class="page">
+            <center>
+                <h1>
+                    <span>Vehicle Details</span>
+                </h1>
+            </center>
+            <div class="table_container">
+                <table  class="table table-sm o_main_table" name="vehicle_details_table">
+                    <thead>
+                        <tr>
+                            <th cospan="2">
+                                <span>Vehicle Number</span>
+                            </th>
+                            <th cospan="2">
+                                <span>Owner name</span>
+                            </th>
+                            <th cospan="2">
+                                <span>Manufacture Name</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <t t-foreach="docs" t-as="o">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span t-field="o.name"/>
+                            </td>
+                            <td>
+                                <span t-field="o.owner"/>
+                            </td>
+                            <td>
+                                <span t-field="o.manufacture_date"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </t>
+                </table>
+            </div>
+        </div>
         </t>
     </template>
 </odoo>

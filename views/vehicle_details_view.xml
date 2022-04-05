@@ -5,7 +5,7 @@
         <field name="name">vehicle.details.tree.view</field>
         <field name="model">vehicle</field>
         <field name="arch" type="xml">
-            <tree string="Vehicles">
+            <tree string="Vehicle details">
                 <field name="name"/>
                 <field name="owner"/>
                 <field name="manufacture_date"/>

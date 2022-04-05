@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--    action for vehicle details pdf report-->
+    <record id="vehicle_details_report" model="ir.actions.report">
+        <field name="name">Vehicle Details</field>
+        <field name="model">vehicle</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">service_station_management.report_vehicle</field>
+        <field name="report_file">service_station_management.report_vehicle</field>
+        <field name="binding_model_id" ref="model_vehicle"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!--    action for vehicle service records pdf report-->
+
+</odoo>

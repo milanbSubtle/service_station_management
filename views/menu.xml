@@ -16,6 +16,7 @@
     <menuitem name="Reports" id="reports_root" sequence="3" parent="service_station_root" groups="base.group_user"/>
     <menuitem name="Vehicle details" id="vehicle_details" sequence="1" parent="reports_root" groups="base.group_user"
               action="vehicle_details_action"/>
+
     <!--Bay selection-->
     <menuitem name="Configuration" id="bay_config" sequence="4" parent="service_station_root" groups="base.group_user"/>
     <menuitem name="Configuration" id="bay_root" sequence="3" parent="bay_config" groups="base.group_user"/>
