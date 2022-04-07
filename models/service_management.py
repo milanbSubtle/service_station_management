@@ -59,7 +59,7 @@ class ServiceManagement(models.Model):
             record.total = total
 
     def action_confirm(self):
-        sequence = self.env['ir.sequence'].next_by_code('service_sequence') or _('New')
+        sequence = self.env['ir.sequence'].next_by_code('service_management') or _('New')
         self.write({'state': 'confirm', 'sequence_no': sequence})
 
     def action_in_progress(self):

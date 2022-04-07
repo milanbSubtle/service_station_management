@@ -8,7 +8,6 @@
                         <span>Vehicle Service Records</span>
                     </h1>
                 </center>
-                <br/>
                 <center>
                     <h3>Vehicle No:
                         <span t-esc="form_data['vehicle'][1]"/>
@@ -20,6 +19,9 @@
                             <tr>
                                 <th>
                                     <span>Service Date</span>
+                                </th>
+                                <th>
+                                    <span>Service Reference</span>
                                 </th>
                                 <th>
                                     <span>Services/Products</span>
@@ -34,19 +36,22 @@
                         </thead>
                         <t t-foreach="data_list" t-as="data">
                             <tbody>
-                                <t t-foreach="data['line_info']" t-as="line">
+                                <t t-foreach="data['line_info']" t-as="line_data">
                                     <tr>
                                         <td>
                                             <t t-esc="data['service_date']"/>
                                         </td>
                                         <td>
-                                            <t t-esc="line['service_type']"/>
+                                            <t t-esc="data['sequence_no']"/>
                                         </td>
                                         <td>
-                                            <t t-esc="line['qty']"/>
+                                            <t t-esc="line_data['service_type']"/>
                                         </td>
                                         <td>
-                                            <t t-esc="line['value']"/>
+                                            <t t-esc="line_data['qty']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line_data['value']"/>
                                         </td>
                                     </tr>
                                 </t>

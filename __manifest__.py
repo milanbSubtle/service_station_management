@@ -10,6 +10,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/ir_sequence.xml',
         'wizard/vehicle_service_records_view.xml',
         'views/vehicle_view.xml',
         'views/service_management_view.xml',

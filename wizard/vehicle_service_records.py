@@ -18,6 +18,8 @@ class VehicleServiceRecordsWizard(models.TransientModel):
 
             service_date = service_record.date_time
             record_lines = service_record.record_lines
+            sequence = service_record.sequence_no
+            service_record_details['sequence_no'] = sequence
             service_record_details['service_date'] = service_date
 
             for record_line in record_lines:
