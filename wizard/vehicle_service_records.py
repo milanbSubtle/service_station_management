@@ -29,7 +29,6 @@ class VehicleServiceRecordsWizard(models.TransientModel):
                 record_line_details.append(line_detail)
             service_record_details['line_info'] = record_line_details
             data_list.append(service_record_details)
-            pass
 
         data = {
             'form_data': self.read()[0],

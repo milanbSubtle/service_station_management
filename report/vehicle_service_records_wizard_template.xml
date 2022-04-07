@@ -22,7 +22,7 @@
                                     <span>Service Date</span>
                                 </th>
                                 <th>
-                                    <span>Products/Services</span>
+                                    <span>Services/Products</span>
                                 </th>
                                 <th>
                                     <span>Quantity</span>
@@ -32,22 +32,26 @@
                                 </th>
                             </tr>
                         </thead>
+                        <t t-foreach="data_list" t-as="data">
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <t t-esc="data_list[]"/>
-                                    </td>
-                                    <td>
-                                        <t t-esc="data_list[]"/>
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                </tr>
+                                <t t-foreach="data['line_info']" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="data['service_date']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line['service_type']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line['qty']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line['value']"/>
+                                        </td>
+                                    </tr>
+                                </t>
                             </tbody>
+                        </t>
                     </table>
                 </div>
             </div>
