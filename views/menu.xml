@@ -6,20 +6,24 @@
     <menuitem name="Service Station Management" id="service_station_root"
               web_icon="service_station_management,static/description/icon.png" groups="base.group_user"/>
     <menuitem name="Vehicles" id="vehicles_root" sequence="1" parent="service_station_root" groups="base.group_user"/>
-    <menuitem name="Vehicles" id="vehicle_details_menu" sequence="1" parent="vehicles_root"
-              action="service_station_management.vehicle_action" groups="base.group_user"/>
+    <menuitem name="Vehicles" id="vehicle_details_menu" action="service_station_management.vehicle_action" sequence="1"
+              parent="vehicles_root"
+              groups="base.group_user"/>
     <menuitem name="Service Management" id="service_management_root" sequence="2" parent="service_station_root"
               groups="base.group_user"/>
-    <menuitem name="Service Management" id="service_management_menu" sequence="1" parent="service_management_root"
-              action="service_management_action" groups="base.group_user"/>
+    <menuitem name="Service Management" id="service_management_menu" action="service_management_action" sequence="1"
+              parent="service_management_root"
+              groups="base.group_user"/>
     <!--    Reports-->
     <menuitem name="Reports" id="reports_root" sequence="3" parent="service_station_root" groups="base.group_user"/>
-    <menuitem name="Vehicle details" id="vehicle_details" sequence="1" parent="reports_root" groups="base.group_user"
-              action="vehicle_details_action"/>
-
+    <menuitem name="Vehicle details" id="vehicle_details" action="vehicle_details_action" sequence="1"
+              parent="reports_root" groups="base.group_user"/>
+    <menuitem name="Vehicle Service Records" id="vehicle_service_records_reports_menu"
+              action="vehicle_service_reports_wizard_action" sequence="2" parent="reports_root"
+              groups="base.group_user"/>
     <!--Bay selection-->
     <menuitem name="Configuration" id="bay_config" sequence="4" parent="service_station_root" groups="base.group_user"/>
     <menuitem name="Configuration" id="bay_root" sequence="3" parent="bay_config" groups="base.group_user"/>
-    <menuitem name="Bay" id="bay_1" sequence="1" parent="bay_root"
-              groups="base.group_user" action="bay_action"/>
+    <menuitem name="Bay" id="bay_1" action="bay_action" sequence="1" parent="bay_root"
+              groups="base.group_user"/>
 </odoo>

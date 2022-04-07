@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="vehicle_service_records_view_form" model="ir.ui.view">
+        <field name="name">vehicle.service.records.wizard.form</field>
+        <field name="model">vehicle.service.records.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle Service Records">
+                <group class="oe_title">
+                    <field name="vehicle"/>
+                </group>
+                <footer>
+                    <button name="print_vehicle_service_records" string="Generate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="vehicle_service_reports_wizard_action" model="ir.actions.act_window">
+        <field name="name">Vehicle Service Records Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vehicle.service.records.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="vehicle_service_records_view_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

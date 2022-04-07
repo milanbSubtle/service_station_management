@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_vehicle_service_reports_wizard">
+        <t t-call="web.html_container">
+            <div class="page">
+                <center>
+                    <h1>
+                        <span>Vehicle Service Records</span>
+                    </h1>
+                </center>
+                <br/>
+                <center>
+                    <h3>Vehicle No:
+                        <span t-esc="form_data['vehicle'][1]"/>
+                    </h3>
+                </center>
+                <div class="table_container">
+                    <table class="table table-sm o_main_table" name="vehicle_service_records_table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span>Service Date</span>
+                                </th>
+                                <th>
+                                    <span>Products/Services</span>
+                                </th>
+                                <th>
+                                    <span>Quantity</span>
+                                </th>
+                                <th>
+                                    <span>Value</span>
+                                </th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <t t-esc="data_list[]"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="data_list[]"/>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -3,3 +3,4 @@ vehicle_access_base_user,vehicle_access_base,model_vehicle,base.group_user,1,1,1
 service_management_access_base_user,service_management_access_base,model_service_management,base.group_user,1,1,1,1
 service_record_lines_access_base_user,service_record_lines_access_base,model_service_record_lines,base.group_user,1,1,1,1
 bay_access_base_user,bay_access_base,model_bay,base.group_user,1,1,1,1
+vehicle_service_records_access_base_user,vehicle_service_records_access_base,model_vehicle_service_records_wizard,base.group_user,1,1,1,1
