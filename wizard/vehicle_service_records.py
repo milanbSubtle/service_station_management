@@ -1,4 +1,5 @@
 from odoo import api, fields, models, _
+from datetime import timedelta
 
 
 class VehicleServiceRecordsWizard(models.TransientModel):
@@ -16,7 +17,8 @@ class VehicleServiceRecordsWizard(models.TransientModel):
             record_line_details = []
             line_detail = {}
 
-            service_date = service_record.date_time
+            service_date = service_record.date_time + timedelta(hours=5, minutes=30)
+
             record_lines = service_record.record_lines
             sequence = service_record.sequence_no
             service_record_details['sequence_no'] = sequence

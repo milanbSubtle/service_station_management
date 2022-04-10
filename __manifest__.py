@@ -19,7 +19,7 @@
         'views/vehicle_details_view.xml',
         'views/menu.xml',
         'report/vehicle_details_template.xml',
-        'report/vehicle_service_records_wizard_template.xml',
+        'report/vehicle_service_records_report_template.xml',
         'report/report.xml'
     ],
 
